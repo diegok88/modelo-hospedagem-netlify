@@ -1,4 +1,3 @@
-cat > netlify.toml << 'EOF'
 [build]
   command = "ng build --configuration=production"
   publish = "dist/modelo-hospedagem-netlify"
