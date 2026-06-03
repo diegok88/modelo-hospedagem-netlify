@@ -1,0 +1,62 @@
+<div class="container">
+  <header>
+    <h1>🚀 Teste Netlify - Angular 19+ com Signals</h1>
+    <p>Deploy funcionando com sucesso!</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Informações do Sistema</h2>
+      <div class="info">
+        <p><strong>Framework:</strong> Angular {{ version }}</p>
+        <p><strong>Data/Hora:</strong> {{ dataAtual() | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+        <p><strong>Navegador:</strong> {{ browserInfo() }}</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Contador de Teste com Signal</h2>
+      <div class="counter">
+        <p>
+          Contador: <strong>{{ contador() }}</strong>
+        </p>
+        <button (click)="incrementar()" class="btn btn-primary">➕ Incrementar</button>
+        <button (click)="resetar()" class="btn btn-secondary">🔄 Resetar</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Teste de API com Signal</h2>
+      <button (click)="carregarDados()" class="btn btn-success" [disabled]="carregando()">
+        {{ botaoTexto() }}
+      </button>
+
+      <!-- Sintaxe correta do Angular 19+ para @if -->
+      @if (mensagemAPI()) {
+        <div class="api-response">
+          <p>{{ mensagemAPI() }}</p>
+        </div>
+      }
+
+      <!-- Debug: Mostrar estado atual -->
+      <div
+        style="
+          background: #f0f0f0;
+          padding: 10px;
+          margin-top: 10px;
+          border-radius: 5px;
+          font-size: 12px;
+        "
+      >
+        <strong>Debug:</strong><br />
+        mensagemAPI() = "{{ mensagemAPI() }}"<br />
+        carregando() = {{ carregando() }}
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Deploy realizado com sucesso no Netlify 🎉</p>
+    <p>Angular + Signals + Netlify = 🚀</p>
+  </footer>
+</div>
